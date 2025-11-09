@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keep in Touch - Multi-Chat</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Login/Register Modal -->
+    <div id="authModal" class="modal">
+      <div class="modal-content">
+        <div class="auth-tabs">
+          <button id="loginTab" class="tab-button active">Login</button>
+          <button id="registerTab" class="tab-button">Register</button>
+        </div>
+
+        <!-- Login Form -->
+        <form id="loginForm" class="auth-form">
+          <h2>Welcome Back!</h2>
+          <div class="form-group">
+            <input type="email" id="loginEmail" placeholder="Email" required />
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              id="loginPassword"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+          <div id="loginError" class="error-message"></div>
+        </form>
+
+        <!-- Register Form -->
+        <form id="registerForm" class="auth-form hidden">
+          <h2>Join the Chat!</h2>
+          <div class="form-group">
+            <input
+              type="email"
+              id="registerEmail"
+              placeholder="Email"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              id="registerUsername"
+              placeholder="Username"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              id="registerPassword"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Register</button>
+          <div id="registerError" class="error-message"></div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Main Chat Interface -->
+    <div id="chatApp" class="chat-app hidden">
+      <!-- Header -->
+      <header class="chat-header">
+        <div class="header-left">
+          <h1>Keep in Touch</h1>
+          <span id="userInfo" class="user-info"></span>
+        </div>
+        <div class="header-right">
+          <button id="logoutButton" class="btn btn-danger">Logout</button>
+        </div>
+      </header>
+
+      <!-- Chat Container -->
+      <div class="chat-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+          <div class="chat-list">
+            <div class="chat-item active" data-room-name="Kyle">
+              <div class="chat-avatar" data-initial="K">K</div>
+              <div class="chat-info">
+                <div class="chat-name">Kyle</div>
+                <div class="chat-preview">Online now</div>
+              </div>
+            </div>
+            <div class="chat-item" data-room-name="Jane">
+              <div class="chat-avatar" data-initial="J">J</div>
+              <div class="chat-info">
+                <div class="chat-name">Jane</div>
+                <div class="chat-preview">Online now</div>
+              </div>
+            </div>
+            <div class="chat-item" data-room-name="Sam">
+              <div class="chat-avatar" data-initial="S">S</div>
+              <div class="chat-info">
+                <div class="chat-name">Sam</div>
+                <div class="chat-preview">Online now</div>
+              </div>
+            </div>
+            <div class="chat-item" data-room-name="David">
+              <div class="chat-avatar" data-initial="D">D</div>
+              <div class="chat-info">
+                <div class="chat-name">David</div>
+                <div class="chat-preview">Online now</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Chat Area -->
+        <div class="main-chat">
+          <!-- Messages Container -->
+          <div id="messagesContainer" class="messages-container">
+            <div class="welcome-message">
+              <h3>Welcome to Keep in Touch!</h3>
+              <p>
+                Start a conversation with Kyle, Jane, Sam, or David. They're all
+                online and ready to chat!
+              </p>
+            </div>
+          </div>
+
+          <!-- Message Input -->
+          <div class="message-input-container">
+            <div class="message-input-wrapper">
+              <input
+                type="text"
+                id="messageInput"
+                placeholder="Type your message..."
+                maxlength="1000"
+              />
+              <button id="sendButton" class="btn btn-primary">Send</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="loading-spinner hidden">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
